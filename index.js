@@ -129,6 +129,10 @@ io.on('connection', (socket) => {
             socket.on('complete_task', (data) => {
                 socket.broadcast.to(roomId).emit('complete_task', data);
             });
+
+            socket.on('start_test', () => {
+                socket.broadcast.to(roomId).emit('start_test');
+            });
         } catch (error) {
             socket.disconnect();
         }
